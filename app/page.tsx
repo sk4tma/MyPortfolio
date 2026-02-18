@@ -4,6 +4,7 @@ export default function Home() {
   return (
     <>
       <header>
+        
         <nav>
           {/*
           <Link href="/">Home</Link>
@@ -15,41 +16,52 @@ export default function Home() {
       </header>
 
       <main>
-        {/* ヒーローセクション */}
-        <section className="hero">
-          <h1>Your Name</h1>
-          <p>Web Developer</p>
-        </section>
+        <div className="min-h-screen pt-16 w-full flex items-center justify-center">
+          <h1 className="text-4xl font-bold text-center">Full Screen</h1>
+        </div>
+        <div className="text-xl">
+          {/* Aboutセクション */}
+          <section id="about">
+            <h2>About Me</h2>
+            <p>自己紹介文...</p>
+          </section>
 
-        {/* Aboutセクション */}
-        <section id="about">
-          <h2>About Me</h2>
-          <p>自己紹介文...</p>
-        </section>
+          {/* playerセクション */}
+          <section className="hero">
+            <h1>Your Name</h1>
+            <p>Web Developer</p>
+          </section>
 
-        {/* Projectsセクション */}
-        <section id="projects">
-          <h2>Projects</h2>
-          <div className="projects-grid">
-            <article className="project-card">
-              {/* <img src="/project1.jpg" alt="プロジェクト1" /> */}
-              <h3>プロジェクト名</h3>
-              <p>説明</p>
-              <a href="#">View More</a>
-            </article>
-          </div>
-        </section>
+          {/* setterセクション */}
+          <section className="hero">
+            <h1>Your Name</h1>
+            <p>Web Developer</p>
+          </section>
 
-        {/* Contactセクション */}
-        <section id="contact">
-          <h2>Contact</h2>
-          <form>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <textarea placeholder="Message"></textarea>
-            <button type="submit">Send</button>
-          </form>
-        </section>
+          {/* Projectsセクション */}
+          <section id="projects">
+            <h2>Projects</h2>
+            <div className="projects-grid">
+              <article className="project-card">
+                {/* <img src="/project1.jpg" alt="プロジェクト1" /> */}
+                <h3>プロジェクト名</h3>
+                <p>説明</p>
+                <a href="#">View More</a>
+              </article>
+            </div>
+          </section>
+
+          {/* Contactセクション */}
+          <section id="contact">
+            <h2>Contact</h2>
+            <form>
+              <input type="text" placeholder="Name" />
+              <input type="email" placeholder="Email" />
+              <textarea placeholder="Message"></textarea>
+              <button type="submit">Send</button>
+            </form>
+          </section>
+        </div>
       </main>
 
       <footer>

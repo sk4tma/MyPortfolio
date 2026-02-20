@@ -24,3 +24,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.my-prpl-bg {
+  background-color: rgba(255, 127, 255, 0.5);
+}

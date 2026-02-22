@@ -1,4 +1,6 @@
 //import Image from "next/image";
+'use client'
+import { useState } from 'react';
 
 export default function Home() {
   return (
@@ -21,7 +23,7 @@ export default function Home() {
         </div>
         <div className="text-xl">
           {/* Aboutセクション */}
-          <section id="about" className="px-2 py-2 mx-4 my-4 my-prpl-bg">
+          <section id="about" className="p-2 m-4 my-prpl-bg">
             <h2 className="text-4xl text-center">About Me</h2>
             <p className="">自己紹介文...</p>
           </section>
@@ -75,15 +77,25 @@ export default function Home() {
 
 export function PlayerTimeline() {
   const events = [
-    { year: '2024', title: 'プロジェクトA', description: 'React/Next.jsで構築' },
-    { year: '2023', title: 'プロジェクトB', description: 'TypeScriptを学習' },
-    { year: '2022', title: 'プロジェクトC', description: 'Web開発を開始' },
+    { year: '2026', month:'2' , competition: 'ボルダージャパンカップ', description: '駒沢 7位' ,type: "national", discipline: "boulder", detail: "0"},
+    { year: '2025', month:'6' , competition: 'ボルダーワールドカップ', description: 'インスブルック 10位' ,type: "international", discipline: "boulder", detail: "0"},
+    { year: '2025', month:'2' , competition: 'ボルダージャパンカップ', description: '駒沢 4位' ,type: "national", discipline: "boulder", detail: "0"},
+    { year: '2024', month:'8' , competition: '世界ユース選手権 リード', description: '貴陽 1位' ,type: "international", discipline: "lead", detail: "0"},
+    { year: '2024', month:'5' , competition: '日本ユース選手権 リード', description: '盛岡 3位' ,type: "national", discipline: "lead", detail: "0"},
+    { year: '2023', month:'12' , competition: 'アジアカップ ボルダー', description: 'リヤド 3位' ,type: "international", discipline: "boulder", detail: "0"},
+    { year: '2023', month:'8' , competition: '世界ユース選手権 ボルダー', description: 'ソウル 4位' ,type: "international", discipline: "boulder", detail: "0"},
+    { year: '2023', month:'6' , competition: '日本ユース選手権 ボルダー', description: '倉吉 2位' ,type: "national", discipline: "boulder", detail: "0"},
+    { year: '2021', month:'12' , competition: '日本ユース選手権 ボルダー', description: '倉吉 1位' ,type: "national", discipline: "boulder", detail: "0"},
+    { year: '2021', month:'8' , competition: '世界ユース選手権 スピード', description: 'ヴォロネジ 3位' ,type: "international", discipline: "speed", detail: "0"},
+    { year: '2020', month:'11' , competition: '日本ユース選手権 スピード', description: '亀岡 1位' ,type: "national", discipline: "speed", detail: "0"},
+    { year: '2020', month:'11' , competition: '日本ユース選手権 ボルダー', description: '葛飾 2位' ,type: "national", discipline: "boulder", detail: "0"},
   ]
+  const [hoveredIndex, setHoveredIndex] = useState<number|null>(null)
 
   return (
-    <section className="my-prpl-bg py-16">
+    <section className="my-prpl-bg py-16 m-4">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-4xl font-bold text-center mb-12">Timeline</h2>
+        <h2 className="text-4xl font-bold text-center mb-12">主な戦歴</h2>
         
         <div className="relative">
           {/* 縦線 */}
@@ -91,44 +103,79 @@ export function PlayerTimeline() {
           
           {/* イベント */}
           {events.map((event, index) => (
-            <div key={index} className="mb-8 flex justify-between items-center w-full bg-red-500/10">
-              {/* 左側（奇数） */}
-              {index % 2 === 0 ? (
-                <>
-                  <div className="w-5/12 text-right pr-8">
-                    <h3 className="text-2xl font-bold text-blue-600">{event.year}</h3>
-                    <h4 className="text-xl font-semibold mt-2">{event.title}</h4>
-                    <p className="text-gray-600 mt-1">{event.description}</p>
-                  </div>
-                  
-                  {/* 中央の丸 */}
-                  <div className="w-2/12 flex justify-center">
-                    <div className="w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow" />
-                  </div>
-                  
-                  <div className="w-5/12" />
-                </>
-              ) : (
-                /* 右側（偶数） */
-                <>
-                  <div className="w-5/12" />
-                  
-                  {/* 中央の丸 */}
-                  <div className="w-2/12 flex justify-center">
-                    <div className="w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow" />
-                  </div>
-                  
-                  <div className="w-5/12 pl-8">
-                    <h3 className="text-2xl font-bold text-blue-600">{event.year}</h3>
-                    <h4 className="text-xl font-semibold mt-2">{event.title}</h4>
-                    <p className="text-gray-600 mt-1">{event.description}</p>
-                  </div>
-                </>
-              )}
+            <div
+              key={index}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className=""
+            >
+              <div key={index} className="mb-8 flex justify-between items-center items-stretch w-full bg-red-500/0">
+                {event.type === "national" ? (
+                  <>
+                    <PlayerTimeline_Event year={event.year} month={event.month} competition={event.competition} description={event.description} discipline={event.discipline} left={event.type === "national"}/>
+                    <PlayerTimeline_Dot/>
+                    <PlayerTimeline_Detail hovered={hoveredIndex === index} detail={event.detail}/>
+                  </>
+                ) : (
+                  <>
+                    <PlayerTimeline_Detail hovered={hoveredIndex === index} detail={event.detail}/>
+                    <PlayerTimeline_Dot/>
+                    <PlayerTimeline_Event year={event.year} month={event.month} competition={event.competition} description={event.description} discipline={event.discipline} left={event.type === "national"}/>
+                  </>
+                )}
+              </div>
             </div>
           ))}
         </div>
       </div>
     </section>
   )
+}
+
+export function PlayerTimeline_Detail({hovered, detail}: PlayerTimeline_DetailProps){
+  return(
+    <div className="w-5/12 overflow-hidden">
+      {hovered ? (
+        <div className={"flex items-center justify-center relative h-full rounded-lg transition-all duration-300 cursor-pointer bg-white shadow-xl scale-105"}>
+          <p className={"mx-5 text-sm"}>{detail}</p>
+        </div>
+      ):(
+        <div/>
+      )}
+    </div>
+  )
+}
+
+interface PlayerTimeline_DetailProps{
+  hovered: boolean
+  detail: string
+}
+
+export function PlayerTimeline_Dot(){
+  return(
+    <div className="w-2/12 flex justify-center">
+    <div className="w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow" />
+    </div>
+  )
+}
+
+
+export function PlayerTimeline_Event({year, month, competition, description, discipline, left}: PlayerTimeline_EventProps){
+  return(
+    <div className={`w-5/12 ${left?"text-right pl-8":"text-left pr-8"}`}>
+      <h3 className={`text-2xl font-bold text-blue-600 ${discipline==='boulder'?"text-yellow-500":discipline==='lead'?"text-green-600":"text-red-400"}`}>{year + "." + month}</h3>
+      <h4 className={`text-lg font-semibold mt-2`}>{competition}</h4>
+      <p className="text-gray-600 mt-1">{description}</p>
+    </div>
+  )
+
+}
+
+interface PlayerTimeline_EventProps{
+  year: string
+  month: string
+  competition: string
+  description: string
+  discipline: string
+  left: boolean
 }

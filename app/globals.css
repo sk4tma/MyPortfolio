@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 :root {
   --background: #ffffff;
@@ -19,6 +23,16 @@
   }
 }
 
+@layer base{
+  h2 {
+    @apply text-4xl font-bold;
+  }
+
+  section h2{
+    @apply text-center mb-12;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -33,3 +47,6 @@ body {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
+.section_detail {
+  @apply py-10 m-4 rounded-lg;
+}

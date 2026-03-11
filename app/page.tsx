@@ -1,5 +1,5 @@
-//import Image from "next/image";
 'use client'
+import Image from "next/image";
 import { useState } from 'react';
 
 export default function Home() {
@@ -12,26 +12,23 @@ export default function Home() {
       <main>
         <div className="my-prpl-bg">
           <section id="hero" className="min-h-screen pt-16 w-full flex items-center justify-center">
-            <h1 className="text-4xl font-bold text-center">Home</h1>
+            <h2>Home</h2>
           </section>
 
           {/* Aboutセクション */}
-          <section id="about" className="p-2 m-4 my-white-bg rounded-lg">
-            <h2 className="text-4xl text-center">About Me</h2>
-            <p className="">自己紹介文...</p>
-          </section>
+          <About/>
 
           {/* playerセクション */}
           <PlayerTimeline/>
 
           {/* setterセクション */}
-          <section id="setter" className="px-2 py-2 mx-4 my-4 my-white-bg rounded-lg">
-            <h2 className="text-4xl text-center">Route Setter</h2>
+          <section id="setter" className="my-white-bg section_detail">
+            <h2>Route Setter</h2>
             <p className="">自己紹介文...</p>
           </section>
 
           {/* Projectsセクション */}
-          <section id="projects">
+          <section id="projects" className="my-white-bg section_detail">
             <h2>Projects</h2>
             <div className="projects-grid">
               <article className="project-card">
@@ -63,6 +60,58 @@ export default function Home() {
   )
 }
 
+
+export function About(){
+  return(
+    <section id="about" className="my-white-bg section_detail">
+      <h2>About Me</h2>
+      <div className="mx-6 bg-red-100">
+        <div className="flex justify-center items-center">
+          <div className="w-6/12 mx-4 my-4 bg-red-200">
+            <p>自己紹介文ああああああああああああああああああああああああああああああ<br/><br/><br/><br/><br/><br/><br/>p</p>
+          </div>
+          <div className="w-6/12 mx-4 my-4 bg-red-200">
+            <Image
+              src="/images/2023_B_BJC_S1.jpg"
+              alt="説明"
+              width={600}
+              height={400}
+              priority
+            />
+          </div>
+        </div>
+        <div className="flex justify-center items-center">
+          <div className="w-6/12 mx-4 my-4 bg-red-200">
+            <Image
+              src="/images/2023_B_BJC_S1.jpg"
+              alt="説明"
+              width={600}
+              height={400}
+              priority
+            />
+          </div>
+          <div className="w-6/12 mx-4 my-4 bg-red-200">
+            <p>自己紹介文...</p>
+          </div>
+        </div>
+        <div className="flex justify-center items-center">
+          <div className="w-6/12 mx-4 my-4 bg-red-200">
+            <p>自己紹介文...</p>
+          </div>
+          <div className="w-6/12 mx-4 my-4 bg-red-200">
+            <Image
+              src="/images/2023_B_BJC_S1.jpg"
+              alt="説明"
+              width={600}
+              height={400}
+              priority
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
 
 
 export function Navbar(){
@@ -210,16 +259,16 @@ export function PlayerTimeline() {
   }
 
   return (
-    <section id="player" className="my-white-bg py-10 m-4 rounded-lg">
+    <section id="player" className="my-white-bg section_detail">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-4xl font-bold text-center mb-12">主な戦歴</h2>
+        <h2>主な戦歴</h2>
         <div className="relative">
           {/* 縦線 */}
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-blue-500" />
           {/* イベント */}
           {events.map((event, index) => (
             <div key={index}>
-              <div key={index} className="mb-8 flex justify-between items-center items-stretch w-full bg-red-500/0">
+              <div key={index} className="mb-8 flex justify-between items-center items-stretch w-full">
                 {event.type === "national" ? (
                   <>
                     <PlayerTimeline_Event year={event.year} month={event.month} competition={event.competition} description={event.description} discipline={event.discipline} left={event.type === "national"} onHoverChange={handleEventHover} index={index}/>

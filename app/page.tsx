@@ -1,5 +1,6 @@
 'use client'
 import Image from "next/image";
+import './style.css';
 import { useState } from 'react';
 
 export default function Home() {
@@ -10,7 +11,7 @@ export default function Home() {
       </header>
 
       <main>
-        <div className="my-prpl-bg">
+        <div className="my-white-bg noto-serif py-2">
           <section id="hero" className="min-h-screen pt-16 w-full flex items-center justify-center">
             <h2>Home</h2>
           </section>
@@ -22,13 +23,13 @@ export default function Home() {
           <PlayerTimeline/>
 
           {/* setterセクション */}
-          <section id="setter" className="my-white-bg section_detail">
+          <section id="setter" className="my-prpl-bg section_detail">
             <h2>Route Setter</h2>
             <p className="">自己紹介文...</p>
           </section>
 
           {/* Projectsセクション */}
-          <section id="projects" className="my-white-bg section_detail">
+          <section id="projects" className="my-prpl-bg section_detail">
             <h2>Projects</h2>
             <div className="projects-grid">
               <article className="project-card">
@@ -41,20 +42,13 @@ export default function Home() {
           </section>
 
           {/* Contactセクション */}
-          <section id="contact">
-            <h2>Contact</h2>
-            <form>
-              <input type="text" placeholder="Name" />
-              <input type="email" placeholder="Email" />
-              <textarea placeholder="Message"></textarea>
-              <button type="submit">Send</button>
-            </form>
-          </section>
+          <Contact/>
+
         </div>
       </main>
 
       <footer>
-        <p>&copy; 2026 Your Name</p>
+        <p>&copy; 2026 Yusuke SUGIMOTO</p>
       </footer>
     </>
   )
@@ -63,14 +57,14 @@ export default function Home() {
 
 export function About(){
   return(
-    <section id="about" className="my-white-bg section_detail">
+    <section id="about" className="my-prpl-bg section_detail">
       <h2>About Me</h2>
-      <div className="mx-6 bg-red-100">
+      <div className="mx-6 px-4 my-white-bg">
         <div className="flex justify-center items-center">
-          <div className="w-6/12 mx-4 my-4 bg-red-200">
-            <p>自己紹介文ああああああああああああああああああああああああああああああ<br/><br/><br/><br/><br/><br/><br/>p</p>
+          <div className="w-6/12 mx-4 my-4">
+            <p className="noto-serif">　2006年6月19日生まれ。2015年にクライミングを始め、翌年からクライミングスクールで本格的に練習を始める。<br/>　ユースC(現在でいうU14)からユース選手権に出場し、リードユース選手権は2度目、ボルダーユース選手権は3度目で決勝に進出する。</p>
           </div>
-          <div className="w-6/12 mx-4 my-4 bg-red-200">
+          <div className="w-6/12 mx-4 my-4">
             <Image
               src="/images/2023_B_BJC_S1.jpg"
               alt="説明"
@@ -81,7 +75,7 @@ export function About(){
           </div>
         </div>
         <div className="flex justify-center items-center">
-          <div className="w-6/12 mx-4 my-4 bg-red-200">
+          <div className="w-6/12 mx-4 my-4">
             <Image
               src="/images/2023_B_BJC_S1.jpg"
               alt="説明"
@@ -90,15 +84,15 @@ export function About(){
               priority
             />
           </div>
-          <div className="w-6/12 mx-4 my-4 bg-red-200">
-            <p>自己紹介文...</p>
+          <div className="w-6/12 mx-4 my-4">
+            <p className="noto-serif">　世界ユースに出場できる年齢になったタイミングで3種目のトレーニングを始め、2020,2021年度のユース日本代表に3種目で選出される。その後はボルダーとリードの2種目に専念し、23年にボルダーのシニア日本代表に、24年に世界ユースのリード種目で優勝している。</p>
           </div>
         </div>
         <div className="flex justify-center items-center">
-          <div className="w-6/12 mx-4 my-4 bg-red-200">
-            <p>自己紹介文...</p>
+          <div className="w-6/12 mx-4 my-4">
+            <p className="noto-serif">自己紹介文...</p>
           </div>
-          <div className="w-6/12 mx-4 my-4 bg-red-200">
+          <div className="w-6/12 mx-4 my-4">
             <Image
               src="/images/2023_B_BJC_S1.jpg"
               alt="説明"
@@ -113,6 +107,19 @@ export function About(){
   )
 }
 
+export function Contact(){
+  return(
+    <section id="contact" className="my-prpl-bg section_detail">
+      <h2>Contact</h2>
+      <form>
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <textarea placeholder="Message"></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  )
+}
 
 export function Navbar(){
   const [isOpen, setIsOpen] = useState(false)
@@ -259,16 +266,16 @@ export function PlayerTimeline() {
   }
 
   return (
-    <section id="player" className="my-white-bg section_detail">
+    <section id="player" className="my-prpl-bg section_detail">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h2>主な戦歴</h2>
-        <div className="relative">
+        <h2>Main results</h2>
+        <div className="relative my-white-bg">
           {/* 縦線 */}
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-blue-500" />
           {/* イベント */}
           {events.map((event, index) => (
             <div key={index}>
-              <div key={index} className="mb-8 flex justify-between items-center items-stretch w-full">
+              <div key={index} className="px-4 py-4 flex justify-between items-center items-stretch w-full">
                 {event.type === "national" ? (
                   <>
                     <PlayerTimeline_Event year={event.year} month={event.month} competition={event.competition} description={event.description} discipline={event.discipline} left={event.type === "national"} onHoverChange={handleEventHover} index={index}/>
@@ -293,7 +300,7 @@ export function PlayerTimeline() {
 
 export function PlayerTimeline_Detail({hovered, detail}: PlayerTimeline_DetailProps){
   return(
-    <div className="w-5/12 overflow-hidden rounded-lg">
+    <div className="w-11/24 overflow-hidden rounded-lg">
       {hovered ? (
         <div className={"flex items-center justify-center relative h-full transition-all duration-300 cursor-pointer bg-white shadow-xl scale-105"}>
           <p className={"mx-5 text-sm"}>{detail}</p>
@@ -312,7 +319,7 @@ interface PlayerTimeline_DetailProps{
 
 export function PlayerTimeline_Dot(){
   return(
-    <div className="w-2/12 flex justify-center items-center">
+    <div className="w-2/24 flex justify-center items-center">
     <div className="w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow" />
     </div>
   )
@@ -324,7 +331,7 @@ export function PlayerTimeline_Event({year, month, competition, description, dis
     <div
     onMouseEnter={() => onHoverChange("enter", index)}
     onMouseLeave={() => onHoverChange("leave", index)}
-    className={`w-5/12 ${left?"text-right pl-8":"text-left pr-8"}`}
+    className={`w-11/24 ${left?"text-right pl-8":"text-left pr-8"}`}
     >
       <h3 className={`text-2xl font-bold text-blue-600 ${discipline==='boulder'?"text-yellow-400":discipline==='lead'?"text-green-600":"text-red-400"}`}>{year + "." + month}</h3>
       <h4 className={`text-lg font-semibold mt-2`}>{competition}</h4>

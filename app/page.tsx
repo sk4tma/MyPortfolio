@@ -59,51 +59,54 @@ export default function Home() {
 export function About(){
   return(
     <section id="about" className="my-prpl-bg section_detail">
-      <h1>About Me</h1>
-      <div className="mx-6 px-4 py-4 my-white-bg">
-        <div className="flex justify-center items-center">
-          <div className="w-6/12 mx-4 my-4">
-            <p className="noto-serif">　2006年6月19日生まれ。2015年にクライミングを始め、翌年からクライミングスクールで本格的に練習を始める。<br/>　ユースC(現在でいうU14)からユース選手権に出場し、リードユース選手権は2度目、ボルダーユース選手権は3度目で決勝に進出する。</p>
+      <div className="container mx-auto max-w-4xl">
+        <h1>About Me</h1>
+        <div className="mx-6 my-white-bg max-w-4xl">
+          <div className="flex justify-center items-center">
+            <div className="w-6/12 mx-4 my-4">
+              <p className="noto-serif">　9歳の頃にクライミングを始め、ユース時代はクライミング界で「黄金世代」と呼ばれる06年生まれの中で戦った。3種目それぞれで世界ユース選手権の出場経験があり、リードでは優勝、スピードでは日本人初のメダル獲得を成し遂げている。</p>
+            </div>
+            <div className="w-6/12 mx-4 my-4">
+              <Image
+                src="/images/2023_B_YWCH_S1.JPG"
+                alt="説明"
+                width={600}
+                height={400}
+                priority
+              />
+            </div>
           </div>
-          <div className="w-6/12 mx-4 my-4">
-            <Image
-              src="/images/2023_B_BJC_S1.jpg"
-              alt="説明"
-              width={600}
-              height={400}
-              priority
-            />
+          <div className="flex justify-center items-center">
+            <div className="w-6/12 mx-4 my-4">
+              <Image
+                src="/images/2025_B_WC4_Q2.JPG"
+                alt="説明"
+                width={600}
+                height={400}
+                priority
+              />
+            </div>
+            <div className="w-6/12 mx-4 my-4">
+              <p className="noto-serif">　23年にはボルダリング種目で初めてシニア日本代表に選出され、アジアカップでメダルを獲得した。また、25,26年と連続でボルダージャパンカップの決勝に進出し、ワールドカップの自己最高順位は10位である。</p>
+            </div>
           </div>
-        </div>
-        <div className="flex justify-center items-center">
-          <div className="w-6/12 mx-4 my-4">
-            <Image
-              src="/images/2023_B_BJC_S1.jpg"
-              alt="説明"
-              width={600}
-              height={400}
-              priority
-            />
-          </div>
-          <div className="w-6/12 mx-4 my-4">
-            <p className="noto-serif">　世界ユースに出場できる年齢になったタイミングで3種目のトレーニングを始め、2020,2021年度のユース日本代表に3種目で選出される。その後はボルダーとリードの2種目に専念し、23年にボルダーのシニア日本代表に、24年に世界ユースのリード種目で優勝している。</p>
-          </div>
-        </div>
-        <div className="flex justify-center items-center">
-          <div className="w-6/12 mx-4 my-4">
-            <p className="noto-serif">自己紹介文...</p>
-          </div>
-          <div className="w-6/12 mx-4 my-4">
-            <Image
-              src="/images/2023_B_BJC_S1.jpg"
-              alt="説明"
-              width={600}
-              height={400}
-              priority
-            />
+          <div className="flex justify-center items-center">
+            <div className="w-6/12 mx-4 my-4">
+              <p className="noto-serif">　最年少(17歳6ヶ月)でC級ルートセッターの検定に合格し、学生時代から全国中学生ボルダー競技大会のセットや全国高等学校選抜スポーツクライミング選手権 東海合同県予選会のチーフなど、種目を問わずルートセットの経験がある。</p>
+            </div>
+            <div className="w-6/12 mx-4 my-4">
+              <Image
+                src=""
+                alt="説明"
+                width={600}
+                height={400}
+                priority
+              />
+            </div>
           </div>
         </div>
       </div>
+      
     </section>
   )
 }
@@ -112,37 +115,42 @@ export function Contact(){
   return(
     <section id="contact" className="my-prpl-bg section_detail">
       <h1>Contact</h1>
-      <div className="flex items-center gap-4">
-        <a
-          href="https://instagram.com/yusuke5875"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:text-pink-600 hover:bg-pink-50 transition"
-          aria-label="Instagramを開く"
-        >
-          <FaInstagram className="h-6 w-6" aria-hidden="true" />
-        </a>
-
-        <a
-          href="https://www.threads.net/@yusuke5875"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:text-pink-600 hover:bg-pink-50 transition"
-          aria-label="Instagramを開く"
-        >
-          <SiThreads className="h-6 w-6" aria-hidden="true" />
-        </a>
-
-        <a
-          href="https://note.com/ysk_5875"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:text-pink-600 hover:bg-pink-50 transition"
-          aria-label="Instagramを開く"
-        >
-          <SiNote className="h-6 w-6" aria-hidden="true" />
-        </a>
+      <div className="flex items-center px-10">
+        <p className="font-semibold text-gray-800">
+          お仕事のご依頼はメールまたはInstagramのDMまで<br/>email : xxx@gmail.com
+        </p>
       </div>
+      <div className="flex gap-2 justify-end">
+          <a
+            href="https://instagram.com/yusuke5875"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:text-pink-600 hover:bg-pink-50 transition"
+            aria-label="Instagramを開く"
+          >
+            <FaInstagram className="h-6 w-6" aria-hidden="true" />
+          </a>
+
+          <a
+            href="https://www.threads.net/@yusuke5875"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:text-pink-600 hover:bg-pink-50 transition"
+            aria-label="Instagramを開く"
+          >
+            <SiThreads className="h-6 w-6" aria-hidden="true" />
+          </a>
+
+          <a
+            href="https://note.com/ysk_5875"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:text-pink-600 hover:bg-pink-50 transition"
+            aria-label="Instagramを開く"
+          >
+            <SiNote className="h-6 w-6" aria-hidden="true" />
+          </a>
+        </div>
     </section>
   )
 }
@@ -284,12 +292,12 @@ export function PlayerStyle() {
         <h2>Style</h2>
       </div>
       <div className="flex justify-center items-center">
-          <div className="w-6/12 mx-4 my-4">
-            <p className="noto-serif">　2006年6月19日生まれ。2015年にクライミングを始め、翌年からクライミングスクールで本格的に練習を始める。<br/>　ユースC(現在でいうU14)からユース選手権に出場し、リードユース選手権は2度目、ボルダーユース選手権は3度目で決勝に進出する。</p>
+          <div className="w-13/24 mx-4 my-4">
+            <p className="noto-serif">　今の実力から到達できる「最高の結果」に辿り着くまでの過程を「最適解」とし、それにどれだけ近づけるかを常に考えています。「最高の結果」や「最適解」は同じ人でも時間や環境によっても変化するものであり、まだ誰も辿り着いていない別の可能性があるはずです。そのため今の自分を信じ、過去の常識や結果にとらわれず、常に今の自分と対話をする必要があると考えています。</p>
           </div>
-          <div className="w-6/12 mx-4 my-4">
+          <div className="w-11/24 mx-4 my-4">
             <Image
-              src="/images/2023_B_BJC_S1.jpg"
+              src="/images/2025_B_BJC_F3.JPG"
               alt="説明"
               width={600}
               height={400}
@@ -436,11 +444,11 @@ export function SetterStyle() {
       </div>
       <div className="flex justify-center items-center">
           <div className="w-6/12 mx-4 my-4">
-            <p className="noto-serif">　2006年6月19日生まれ。2015年にクライミングを始め、翌年からクライミングスクールで本格的に練習を始める。<br/>　ユースC(現在でいうU14)からユース選手権に出場し、リードユース選手権は2度目、ボルダーユース選手権は3度目で決勝に進出する。</p>
+            <p className="noto-serif">　「ルートセットが成功する」とは何かをシチュエーションに応じて常に考える事を大切にしています。目的と手段を線引きし、何が必要とされているのか、はたまた何が冗長なのか、まだ誰も最適解を知らない中で最も正解に近いと認められることを目標に課題を作ります。</p>
           </div>
           <div className="w-6/12 mx-4 my-4">
             <Image
-              src="/images/2023_B_BJC_S1.jpg"
+              src=""
               alt="説明"
               width={600}
               height={400}

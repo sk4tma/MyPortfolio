@@ -32,11 +32,12 @@ export default function Hero() {
             src="/images/2026_B_baby_F.jpg"
             alt=""
             fill
-            className="object-cover"
+            sizes="100vw"
+            className="object-cover object-[60%_33%]"
           />
         </div>
         <p className={[
-            "text-right",
+            "text-right mt-24",
             "transition-colors duration-700", // ← 色をなめらかに変える
             doneLetter ? "text-white" : "text-black",
           ].join(" ")}

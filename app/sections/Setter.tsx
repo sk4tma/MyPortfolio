@@ -1,8 +1,5 @@
 import Image from "next/image";
-import Timeline_Detail from "../components/Timeline_Detail";
-import Timeline_Dot from "../components/Timeline_Dot";
-import Timeline_Event from "../components/Timeline_Event";
-import { useState } from 'react';
+import Timeline from "../components/Timeline";
 
 export default function Setter(){
   return(
@@ -43,52 +40,18 @@ export function SetterStyle() {
 
 export function SetterTimeline() {
   const events = [
-    { year: '2025', month:'10' , competition: '高校生選手権 東海合同県予選会', description: 'チーフルートセッター' ,type: "national", discipline: "lead", detail: "detail"},
-    { year: '2025', month:'8' , competition: '全国中学生ボルダー競技大会', description: 'ルートセッター' ,type: "national", discipline: "boulder", detail: "detail"},
-    { year: '2024', month:'8' , competition: '全国中学生ボルダー競技大会', description: 'ルートセッター' ,type: "national", discipline: "boulder", detail: "detail"},
-    { year: '2024', month:'3' , competition: 'C級ルートセッター 取得', description: 'ライセンス' ,type: "national", discipline: "lead", detail: "detail"},
+    { year: '2025', month:'10' , competition: '高校生選手権 東海合同県予選会', description: 'チーフルートセッター' ,type: "national", discipline: "lead", detail: "no detail", link: "", linkName: ""},
+    { year: '2025', month:'8' , competition: '全国中学生ボルダー競技大会', description: 'ルートセッター' ,type: "national", discipline: "boulder", detail: "no detail", link: "", linkName: ""},
+    { year: '2024', month:'8' , competition: '全国中学生ボルダー競技大会', description: 'ルートセッター' ,type: "national", discipline: "boulder", detail: "no detail", link: "", linkName: ""},
+    { year: '2024', month:'3' , competition: 'C級ルートセッター 取得', description: 'ライセンス' ,type: "national", discipline: "lead", detail: "史上最年少でC級ルートセッターの資格を獲得。", link: "", linkName: ""},
   ]
-  const [hoveredIndex, setHoveredIndex] = useState<number|null>(null)
-  const handleEventHover = (state: string, index: number) => {
-    switch(state){
-      case "enter":
-        setHoveredIndex(index);
-        break;
-      case "leave":
-        setHoveredIndex(null);
-        break;
-    }
-  }
 
   return (
     <div className="my-white-bg my-6">
       <div className="py-9">
         <h2>TimeLine</h2>
       </div>
-      <div className="relative">
-        {/* 縦線 */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-blue-500" />
-        {/* イベント */}
-        {events.map((event, index) => (
-          <div key={index}>
-            <div key={index} className="px-4 py-4 flex justify-between items-center items-stretch w-full">
-              {event.type === "national" ? (
-                <>
-                  <Timeline_Event year={event.year} month={event.month} competition={event.competition} description={event.description} discipline={event.discipline} left={event.type === "national"} onHoverChange={handleEventHover} index={index}/>
-                  <Timeline_Dot/>
-                  <Timeline_Detail hovered={hoveredIndex === index} detail={event.detail}/>
-                </>
-              ) : (
-                <>
-                  <Timeline_Detail hovered={hoveredIndex === index} detail={event.detail}/>
-                  <Timeline_Dot/>
-                  <Timeline_Event year={event.year} month={event.month} competition={event.competition} description={event.description} discipline={event.discipline} left={event.type === "national"} onHoverChange={handleEventHover} index={index}/>
-                </>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
+      <Timeline events={events}/>
     </div>
   )
 }

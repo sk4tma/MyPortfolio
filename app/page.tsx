@@ -38,7 +38,7 @@ export default function Home() {
                 <img src="/project1.jpg" alt="プロジェクト1" />
                 <h3>プロジェクト名</h3>
                 <p>説明</p>
-                <a href="#">View More</a>
+                <Link href="#">View More</Link>
               </article>
             </div>
           </section>

@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Timeline from "../components/Timeline";
+import Style from "../components/Style";
 
 export default function Setter(){
   return(
@@ -15,25 +15,15 @@ export default function Setter(){
 
 export function SetterStyle() {
 
+  const source = "/images/2021_S_SYC_F1.JPG"
+  const body = "　「ルートセットが成功する」とは何かをシチュエーションに応じて常に考える事を大切にしています。目的と手段を線引きし、何が必要とされているのか、はたまた何が冗長なのか、まだ誰も最適解を知らない中で最も正解に近いと認められることを目標に課題を作ります。"
+
   return (
     <div className="my-white-bg my-6">
-      <div className="py-9">
+      <div className="py-7">
         <h2>Style</h2>
       </div>
-      <div className="flex justify-center items-center">
-          <div className="w-6/12 mx-4 my-4">
-            <p className="noto-serif">　「ルートセットが成功する」とは何かをシチュエーションに応じて常に考える事を大切にしています。目的と手段を線引きし、何が必要とされているのか、はたまた何が冗長なのか、まだ誰も最適解を知らない中で最も正解に近いと認められることを目標に課題を作ります。</p>
-          </div>
-          <div className="w-6/12 mx-4 my-4">
-            <Image
-              src="/images/2021_S_SYC_F1.JPG"
-              alt="説明"
-              width={600}
-              height={400}
-              priority
-            />
-          </div>
-        </div>
+      <Style body={body} source={source}/>
     </div>
   )
 }
